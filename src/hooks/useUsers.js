@@ -6,14 +6,13 @@ import {
 import axios from 'axios'
 
 const useUsers = () => {
-  const [users, setUsers] = useState([])
+  const [usersTotal, setUsers] = useState([])
 
   /** GET USERS */
   useEffect(() => {
     const getUsers = async () => {
       try {
         const { data } = await axios.get(process.env.REACT_APP_USERS_URL)
-
         setUsers(data)
       } catch (err) {
         console.log('KO::USERS', err)
@@ -24,7 +23,7 @@ const useUsers = () => {
   }, [])
 
   return {
-    users
+    usersTotal
   }
 }
 
